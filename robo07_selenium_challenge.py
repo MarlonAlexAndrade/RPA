@@ -7,11 +7,15 @@ from time import sleep
 import pyautogui as p
 import pandas as pd
 import requests
+import os
 
 chrome_options = Options()
 chrome_options.add_experimental_option("detach", True)
 servico = Service(ChromeDriverManager().install())
 nav = webdriver.Chrome(service=servico, options=chrome_options)
+
+os.remove('challenge.xlsx')
+os.remove('score.png')
 
 nav.get('http://rpachallenge.com')
 nav.maximize_window()
@@ -44,6 +48,7 @@ for row in df.itertuples():
   
     nav.find_element(By.CSS_SELECTOR, 'input.btn.uiColorButton[type="submit"]').click()
 
+sleep(0.3)
 p.screenshot('score.png')
 
 nav.quit()

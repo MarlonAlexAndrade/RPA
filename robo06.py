@@ -25,8 +25,7 @@ while count_page <= 3:
     tabela_io = io.StringIO(tabela)
     dados = pd.read_csv(tabela_io, delimiter='\t')
 
-    tabela = nav.find_element(By.XPATH, '//*[@id="tableSandbox"]')
-
+    # tabela = nav.find_element(By.XPATH, '//*[@id="tableSandbox"]')
     # Método usado no video
     # with open('Temp.csv', 'w') as file:
     #     file.write(tabela.text)
